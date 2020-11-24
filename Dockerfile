@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
 
 ARG MT_VERSION
-ENV MT_VERSION ${MT_VERSION:-6.7.0}
+ENV MT_VERSION ${MT_VERSION:-7.4.0}
 
 COPY [ "./docker-entrypoint.sh", "./cpanfile", "/" ]
 
