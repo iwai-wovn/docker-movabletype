@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
 
 ARG MT_VERSION
-ENV MT_VERSION ${MT_VERSION:-7.4.0}
+ENV MT_VERSION ${MT_VERSION:-6.7.0}
 
 COPY [ "./docker-entrypoint.sh", "./cpanfile", "/" ]
 
@@ -25,7 +25,7 @@ RUN apt-get update -y \
   /etc/apache2/conf-available/security.conf \
   && a2enmod mpm_prefork cgi rewrite php7.0 \
   && cpm install -g \
-  && apt-get purge -y --auto-remove gcc libxml2-dev libssl-dev libexpat1-dev make libmariadbclient-dev libicu-dev gcc-6 \
+  && apt-get purge -y --auto-remove gcc libxml2-dev libssl-dev libexpat1-dev make \
   && apt-get autoclean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/* /root/.perl-cpm
 
 ADD https://github.com/movabletype/movabletype/archive/mt${MT_VERSION}.tar.gz /usr/local/src

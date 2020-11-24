@@ -15,6 +15,7 @@ if [ ! -e "${MT_PATH}/mt.cgi" ]; then
 
     mkdir -p ${MT_PATH}
     tar zxf ${SRC_PATH}/${DL_FILE} -C ${MT_PATH} --strip-components 1
+    chmod -R a+w ${MT_PATH}/mt-static/support
 
     echo Complete! MovableType has been successfully copied to ${MT_PATH}
 fi
